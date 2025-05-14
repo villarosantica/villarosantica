@@ -4,7 +4,7 @@ dist/
 # generated types
 .astro/
 
-public/uploads/
+# public/uploads/
 
 # dependencies
 node_modules/
