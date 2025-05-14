@@ -1,0 +1,86 @@
+---
+import { getEntry } from 'astro:content';
+// const { data } = await getEntry('header', 'header');
+import data from "../../content/header/header.yaml";
+
+const menu = data.menu;
+const logo = data.logo;
+---
+
+<header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent text-white">
+  <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between relative">
+
+    <!-- Mobile: hamburger -->
+    <button id="menu-toggle" class="md:hidden z-50 transition-colors duration-300 text-white">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
+    <!-- Logo: mobile (posizione dinamica, staccato dal bordo) -->
+    <a
+      href="/"
+      id="logo-link"
+      class="absolute right-4 md:relative md:left-0 md:right-auto md:translate-x-0 transition-all duration-500 flex items-center gap-3 z-40"
+    >
+      <img src={logo} alt="Villa Rosantica logo" class="h-10 w-auto" />
+    </a>
+
+    <!-- Desktop menu -->
+    <nav class="hidden md:flex space-x-6 text-sm font-medium uppercase tracking-wide">
+      {menu.map(item => (
+        <a href={item.href} class="hover:underline">{item.name}</a>
+      ))}
+    </nav>
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white text-black absolute top-full left-0 w-full shadow-md transition-all">
+    <nav class="flex flex-col px-6 py-4 space-y-3">
+      {menu.map(item => (
+        <a href={item.href} class="text-sm font-medium uppercase tracking-wide">{item.name}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  const toggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const navbar = document.getElementById("navbar");
+  const logoLink = document.getElementById("logo-link");
+
+  function updateNavbar(scroll = false, forceWhite = false) {
+    const isScrolled = scroll || window.scrollY > 100;
+
+    if (isScrolled || forceWhite) {
+      navbar.classList.add("bg-white", "text-black", "shadow-md", "backdrop-blur");
+      navbar.classList.remove("text-white", "bg-transparent");
+
+      logoLink.classList.add("left-1/2", "-translate-x-1/2");
+      logoLink.classList.remove("right-4", "translate-x-0");
+    } else {
+      navbar.classList.remove("bg-white", "text-black", "shadow-md", "backdrop-blur");
+      navbar.classList.add("bg-transparent", "text-white");
+
+      logoLink.classList.remove("left-1/2", "-translate-x-1/2");
+      logoLink.classList.add("right-4", "translate-x-0");
+    }
+
+    toggle.classList.toggle("text-black", isScrolled || forceWhite);
+    toggle.classList.toggle("text-white", !isScrolled && !forceWhite);
+  }
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = !mobileMenu.classList.contains("hidden");
+    mobileMenu.classList.toggle("hidden");
+    updateNavbar(false, !isOpen);
+  });
+
+  window.addEventListener("scroll", () => {
+    updateNavbar();
+  });
+
+  // Inizializza correttamente al primo load
+  updateNavbar();
+</script>

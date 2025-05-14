@@ -1,0 +1,64 @@
+meta:
+  title: "La Location – Villa Rosantica"
+  description: "Villa Rosantica, un rifugio romantico tra storia e natura sull'Appia Antica."
+
+hero:
+  immagine: "/uploads/location-hero.jpg"
+  titolo: "La Location"
+  sottotitolo: "Un rifugio romantico tra storia e natura"
+  testo: |
+    Villa Rosantica si estende in un parco privato di straordinaria grandezza, popolato da alberi secolari, un suggestivo laghetto, e angoli verdi curati con amore.
+
+sezioni:
+  - titolo: "Ingresso e Parcheggio"
+    immagine: "/uploads/location-ingresso.jpeg"
+    alt: "Ingresso su Via Appia Antica e parcheggio riservato"
+    testo: |
+      L’ingresso dall’Appia Antica ci immerge subito nell’atmosfera senza tempo della Regina Viarum, facendoci respirare la sua storicità e regalando un’emozione unica.
+      A disposizione degli ospiti un comodo parcheggio interno riservato, per vivere l’evento in totale relax fin dal primo istante.
+
+  - titolo: "Capienza e Spazi"
+    immagine: "/uploads/location-capienza.jpg"
+    alt: "Interni e giardini di Villa Rosantica"
+    sottospazi:
+      - label: "Green House"
+        immagine: "/uploads/capienza-greenhouse.jpg"
+        testo: |
+          Capienza interna: fino a 220 ospiti placée nella Green house e 250 ospiti all’interno dei saloni.  
+          Green house riscaldabile: per garantire il massimo comfort anche nelle stagioni più fresche
+      - label: "Giardino esterno"
+        immagine: "/uploads/capienza-giardino.jpg"
+        testo: |
+          Giardino esterno: ampissimo, modulabile, con capienza praticamente illimitata
+      - label: "Salone del Ninfeo"
+        immagine: "/uploads/capienza-ninfeo.jpg"
+        testo: |
+          Salone del Ninfeo: il cuore elegante della villa, ideale per qualsiasi tipo di evento
+      - label: "Salotto dei Salotti e altre sale minori"
+        immagine: "/uploads/capienza-salotti.jpg"
+        testo: |
+          Salotto dei Salotti e altre sale minori: spazi versatili e personalizzabili per ogni esigenza
+      - label: "Suite degli sposi"
+        immagine: "/uploads/capienza-suite.jpg"
+        testo: |
+          Suite degli sposi: raffinata e riservata, con affaccio scenografico sul glicine e giardino.
+
+
+  - titolo: "Il Giardino Segreto"
+    immagine: "/uploads/location-giardino-segreto.jpg"
+    alt: "Cerimonia nel Giardino Segreto"
+    testo: |
+      Dove la magia del “sì” prende vita.  
+      Tra i gioielli della villa spicca il Giardino Segreto, un luogo intimo e poetico dove è possibile celebrare sotto ad un glicine bianco di rara bellezza e peonie in fiore la riproduzione del rito civile in un’atmosfera da favola.  
+      Questo spazio si presta anche per accogliere momenti speciali come l’aperitivo di benvenuto o il taglio della torta, con una scenografia naturale mozzafiato.
+
+  - titolo: "Il Giardino del Ninfeo"
+    immagine: "/uploads/location-giardino-ninfeo.jpg"
+    alt: "Giardino del Ninfeo di sera"
+    testo: |
+      Suggestione e fascino tra luci, acqua e natura.  
+      Un’altra perla verde della villa, questo giardino offre un colpo d’occhio unico, perfetto per shooting fotografici, brindisi sotto le stelle e ricevimenti immersi nella natura.
+
+cta:
+  link: "/contatti"
+  testo: "Prenota una visita"

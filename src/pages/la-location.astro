@@ -1,0 +1,139 @@
+---
+import "@fontsource-variable/inter";
+import "~/styles/index.css";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+
+import location from "../../content/la-location/la-location.yaml";
+
+const ingresso   = location.sezioni.find(s => s.titolo === "Ingresso e Parcheggio");
+const capienza   = location.sezioni.find(s => s.titolo === "Capienza e Spazi");
+const interior   = location.sezioni.find(s => s.titolo === "Interni Eleganti");
+const gardenSeg  = location.sezioni.find(s => s.titolo === "Il Giardino Segreto");
+const gardenNin  = location.sezioni.find(s => s.titolo === "Il Giardino del Ninfeo");
+---
+
+<!DOCTYPE html>
+<html lang="it" class="h-full motion-safe:scroll-smooth bg-white text-neutral-800">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{location.meta.title}</title>
+    <meta name="description" content={location.meta.description} />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+      body, p, a, h1, h2, h3, h4, h5, h6 { font-family: 'EB Garamond', serif; }
+    </style>
+  </head>
+  <body class="h-full overflow-x-hidden bg-white text-[15px]">
+    <Header />
+
+    <main class="space-y-0">
+      <!-- HERO -->
+      <section class="relative w-full h-[70vh] flex items-center justify-center bg-cover bg-center" style={`background-image:url('${location.hero.immagine}')`}>
+        <div class="absolute inset-0 bg-black/50" />
+        <div class="relative z-10 text-center text-white px-8 max-w-3xl">
+          <h1 class="text-4xl font-bold mb-3">{location.hero.titolo}</h1>
+          {location.hero.sottotitolo && <h2 class="text-2xl italic mb-4">{location.hero.sottotitolo}</h2>}
+          <p class="whitespace-pre-line leading-relaxed text-base">{location.hero.testo}</p>
+        </div>
+      </section>
+
+      <!-- Ingresso & Parcheggio -->
+      {ingresso && (
+        <section class="w-full flex flex-col-reverse md:flex-row bg-white">
+          <img src={ingresso.immagine} alt={ingresso.alt} class="w-full md:w-1/2 h-[32rem] object-cover" />
+          <div class="md:w-1/2 px-6 md:px-16 py-14 flex items-center">
+            <div>
+              <h3 class="text-2xl font-semibold mb-3">{ingresso.titolo}</h3>
+              <p class="whitespace-pre-line leading-relaxed text-base" set:html={ingresso.testo}></p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- Capienza & Spazi: lista sinistra, immagine destra -->
+      {capienza && capienza.sottospazi && (
+        <section class="w-full bg-[#f9f9f9] py-20 px-6 md:px-20" id="capienza">
+          <h2 class="text-3xl font-semibold text-center mb-10">{capienza.titolo}</h2>
+          <ul id="capienza-tabs" class="space-y-8 max-w-3xl mx-auto">
+            {capienza.sottospazi.map((item,i)=>(
+              <li key={i} class="cap-item group cursor-pointer bg-white p-6 rounded shadow" data-img={item.immagine}>
+                <div class="flex items-start gap-3">
+                  <span class="h-2 w-2 mt-2 bg-neutral-800 rounded-full" />
+                  <span className={`label text-base ${i===0?'font-bold':''}`}>{item.label}</span>
+                </div>
+                <div className={`desc mt-2 pl-5 text-sm leading-relaxed whitespace-pre-line ${i===0?'block':'hidden'}`} set:html={item.testo}></div>
+                <img
+                  src={item.immagine}
+                  alt={item.label}
+                  className={`mt-4 w-full h-48 object-cover rounded ${i===0?'block':'hidden'}`}
+                />
+              </li>
+            ))}
+          </ul>
+          <script is:inline>
+            const capItems = document.querySelectorAll('.cap-item');
+            capItems.forEach(item=>{
+              item.addEventListener('click',()=>{
+                capItems.forEach(x=>{
+                  x.querySelector('.desc').classList.add('hidden');
+                  x.querySelector('.label').classList.remove('font-bold');
+                  x.querySelector('img').classList.add('hidden');
+                });
+                item.querySelector('.desc').classList.remove('hidden');
+                item.querySelector('.label').classList.add('font-bold');
+                item.querySelector('img').classList.remove('hidden');
+              });
+            });
+          </script>
+        </section>
+      )}
+        </section>
+
+
+      <!-- Interni Eleganti -->
+      {interior && (
+        <section class="w-full flex flex-col md:flex-row-reverse bg-white">
+          <img src={interior.immagine} alt={interior.alt} class="w-full md:w-1/2 h-[32rem] object-cover" />
+          <div class="md:w-1/2 px-6 md:px-16 py-14 flex items-center">
+            <div>
+              <h3 class="text-2xl font-semibold mb-3">{interior.titolo}</h3>
+              <p class="whitespace-pre-line leading-relaxed text-base" set:html={interior.testo}></p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- Giardini speculari -->
+      {gardenSeg && gardenNin && (
+        <section class="w-full grid md:grid-cols-2">
+          {[gardenSeg, gardenNin].map((g,i)=>(
+            <div key={i} class="relative group h-[34rem] md:h-[38rem] overflow-hidden">
+              <img src={g.immagine} alt={g.alt} class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-black/50 transition-opacity duration-500 group-hover:bg-black/20" />
+              <div class="relative z-10 flex items-center justify-center h-full p-8 text-center text-white transition-opacity duration-500 group-hover:opacity-0">
+                <div>
+                  <h3 class="text-3xl font-semibold mb-4">{g.titolo}</h3>
+                  <p class="text-base leading-relaxed whitespace-pre-line" set:html={g.testo}></p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
+
+      <!-- CTA -->
+      <section class="w-full bg-[#f9f9f9] text-center py-16">
+        <a
+          href={location.cta.link}
+          class="inline-block bg-black text-white px-6 py-3 rounded hover:bg-white transition hover:text-black hover:border hover:border-black"
+        >
+          {location.cta.testo}
+        </a>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>

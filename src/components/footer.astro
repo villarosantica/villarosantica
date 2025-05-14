@@ -1,0 +1,32 @@
+---
+import footer from "../../content/footer/footer.yaml";
+---
+
+<footer class="bg-white px-6 md:px-20 py-16 text-black">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+    <!-- INFO CONTATTI -->
+    <div class="space-y-4">
+      <img src={footer.logo} alt="Villa Rosantica" class="h-12" />
+      <p class="text-sm">{footer.indirizzo}</p>
+      <p class="text-sm">Tel: <a href={`tel:${footer.telefono_1}`} class="underline">{footer.telefono_1}</a></p>
+      <p class="text-sm">Tel: <a href={`tel:${footer.telefono_2}`} class="underline">{footer.telefono_2}</a></p>
+      <p class="text-sm">Email: <a href={`mailto:${footer.email}`} class="underline">{footer.email}</a></p>
+      <p class="text-sm">{footer.piva}</p>
+    </div>
+
+    <!-- MINI FORM -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4">{footer.titolo_form}</h2>
+      <!-- Usa GET per passare i parametri a /contatti -->
+      <form action="/contatti" method="GET" class="space-y-4">
+        <input type="text" name="nome" placeholder="Il tuo nome" required class="w-full border border-gray-300 rounded px-4 py-2 text-sm" />
+        <input type="email" name="email" placeholder="La tua email" required class="w-full border border-gray-300 rounded px-4 py-2 text-sm" />
+        <button type="submit" class="primary-btn bg-black text-white hover:bg-white hover:text-black hover:border hover:border-black transition w-auto whitespace-nowrap px-6 py-2 rounded">Completa la richiesta</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="mt-10 text-center text-xs text-gray-500">
+    © {new Date().getFullYear()} Villa Rosantica. Tutti i diritti riservati.
+  </div>
+</footer>

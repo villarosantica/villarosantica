@@ -1,0 +1,53 @@
+meta:
+  title: "Eventi – Villa Rosantica"
+  description: "Matrimoni eleganti, feste private ed eventi corporate in una location esclusiva sull’Appia Antica."
+
+hero:
+  immagine: "/uploads/eventi-hero.jpeg"
+  titolo: "Eventi a Villa Rosantica"
+  sottotitolo: "La cornice perfetta per ogni occasione"
+  testo: ""
+
+sezioni:
+  - titolo: "Proposta Gastronomica"
+    immagine: "/uploads/eventi-food.jpg"
+    alt: "Chef di Ambrosini Banqueting all'opera"
+    testo: |
+      Affidiamo la cucina agli chef di <a href="https://example.com/ambrosini" class="underline" target="_blank" rel="noopener">Ambrosini Banqueting</a>, che selezionano materie prime d’eccellenza e le trasformano in esperienze di gusto scenografiche.
+      Isole aperitivo eleganti, showcooking live, buffet tematici e menù personalizzati accompagneranno ogni momento del tuo evento.
+
+  - titolo: "Eventi su Misura"
+    immagine: "/uploads/eventi-matrimonio.jpeg"
+    alt: "Allestimento matrimonio in giardino"
+    testo: |
+      Matrimoni, feste private, party per bambini: ogni dettaglio è personalizzabile, dalla disposizione dei tavoli alla scenografia, dalla musica alle luci.  
+      I nostri spazi versatili e lo staff dedicato trasformano ogni desiderio in realtà.
+
+  - titolo: "Corporate & Produzione"
+    immagine: "/uploads/eventi-corporate.jpeg"
+    alt: "Meeting aziendale allestito in villa"
+    testo: |
+      Team building, shooting fotografici, lanci prodotto, videoclip e set cinematografici trovano qui la loro dimensione ideale.  
+      140 posti auto interni e ampi spazi modulabili rendono Villa Rosantica perfetta anche per esposizioni automotive e meeting aziendali di ogni tipo.
+
+  - titolo: "Il Giardino Segreto"
+    immagine: "/uploads/eventi-giardino-segreto.jpeg"
+    alt: "Concerto serale nel Giardino Segreto"
+    testo: |
+      Un angolo incantato per concerti di musica classica, momenti di networking o semplicemente per godersi la sua bellezza al tramonto.  
+      L’atmosfera fiabesca dei glicini e delle peonie renderà il tuo evento indimenticabile.
+
+  - titolo: "Servizi Complementari"
+    immagine: "/uploads/eventi-servizi.jpg"
+    alt: "Service audio e luci professionale in villa"
+    testo: |
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Location manager dedicata per consulenza personalizzata</li>
+        <li>Network di fornitori selezionati: service audio/luci, DJ, musicisti</li>
+        <li>Fotografi e videomaker professionisti per immortalare ogni attimo</li>
+        <li>Supporto completo a 360° per un evento senza pensieri</li>
+      </ul>
+
+cta:
+  testo: "Richiedi un preventivo o prenota una visita"
+  link: "/contatti"

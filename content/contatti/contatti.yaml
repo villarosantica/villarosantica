@@ -1,0 +1,15 @@
+meta:
+  title: "Contatti – Villa Rosantica"
+  description: "Contatta Villa Rosantica per informazioni, richieste o per prenotare una visita. Scopri dove siamo e come raggiungerci."
+
+hero:
+  immagine: "/uploads/contatti-hero.jpeg"
+  titolo: "Contatti"
+  testo: "Siamo a disposizione per richieste, prenotazioni o visite in struttura. Compila il form oppure vieni a trovarci di persona."
+
+informazioni:
+  nome: "Villa Rosantica"
+  indirizzo: "Via Appia Antica, 288\n00179 Roma (RM)"
+  telefono: "06.513588"
+  email: "info@villarosantica.it"
+  note: "Riceviamo solo su appuntamento."

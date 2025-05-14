@@ -1,0 +1,156 @@
+---
+import "@fontsource-variable/inter";
+import "~/styles/index.css";
+
+import HeroCarousel from "../components/HeroCarousel.jsx";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import { loadGalleryImages } from "~/utils/loadGallery.ts";
+
+import homepage from "../../content/homepage/homepage.yaml";
+
+const images = loadGalleryImages();
+
+// Classe pulsante riutilizzabile su tutte le pagine
+const btnClass = "primary-btn";
+---
+
+<!DOCTYPE html>
+<html lang="it" class="h-full motion-safe:scroll-smooth bg-white text-black">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{homepage.meta.title}</title>
+
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <meta name="description" content={homepage.meta.description} />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+      body, p, a, h1, h2, h3, h4, h5, h6 { font-family: "EB Garamond", serif; }
+
+      /* Pulsante primario riutilizzabile */
+      .primary-btn {
+        @apply inline-block self-start w-44 text-center bg-black text-white px-4 py-2 rounded text-sm transition hover:bg-white hover:text-black hover:border hover:border-black;
+      }
+    </style>
+  </head>
+
+  <body class="h-full overflow-x-hidden bg-white text-neutral-800 text-[15px]">
+    <Header />
+
+    <HeroCarousel client:load />
+    <!-- <section class="relative w-full h-[80vh] overflow-hidden">
+      <video
+        class="absolute inset-0 w-full h-full object-cover"
+        src={homepage.hero.video}
+        autoplay
+        muted
+        loop
+        playsinline
+      ></video>
+    </section>
+     -->
+
+    <!-- INTRO PADDED -->
+    <section class="w-full bg-white pt-20 pb-24 px-8 md:px-24 text-center border-b">
+      <h2 class="text-xl md:text-2xl font-semibold mb-2">{homepage.intro.titolo}</h2>
+      <p class="max-w-3xl mx-auto text-base">{homepage.intro.testo}</p>
+    </section>
+
+    <main class="space-y-0">
+      <!-- LA LOCATION -->
+      <section class="w-full flex flex-col md:flex-row">
+        <img src={homepage.location.immagine} alt="La Location" class="w-full md:w-1/2 h-[36rem] object-cover" />
+        <div class="md:w-1/2 bg-[#f9f9f9] px-6 md:px-20 py-16 flex flex-col justify-center">
+          <h2 class="text-2xl font-bold mb-4">{homepage.location.titolo}</h2>
+          <p class="mb-4 text-base">{homepage.location.testo}</p>
+          <a href="/la-location" class={btnClass}>{homepage.location.link}</a>
+        </div>
+      </section>
+
+      <!-- EVENTI -->
+      <section class="w-full flex flex-col md:flex-row-reverse">
+        <img src={homepage.eventi.immagine} alt="Eventi" class="w-full md:w-1/2 h-[36rem] object-cover" />
+        <div class="md:w-1/2 bg-[#f9f9f9] px-6 md:px-20 py-16 flex flex-col justify-center">
+          <h2 class="text-2xl font-bold mb-4">{homepage.eventi.titolo}</h2>
+          <p class="mb-4 text-base">{homepage.eventi.testo}</p>
+          <a href="/eventi" class={btnClass}>{homepage.eventi.link}</a>
+        </div>
+      </section>
+
+      <!-- INTERMEZZO TESTUALE -->
+      <section class="w-full bg-white py-24 px-8 md:px-24 text-center">
+        <h2 class="text-xl md:text-2xl font-semibold mb-4">{homepage.intermezzo.titolo}</h2>
+        <p class="max-w-3xl mx-auto text-base">{homepage.intermezzo.testo}</p>
+      </section>
+
+      <!-- CAROUSEL GALLERY -->
+      <section class="w-full overflow-hidden bg-white">
+        <div class="relative w-full">
+          <div id="carousel" class="flex transition-transform duration-700 ease-in-out w-full">
+            {images.map((url, i) => (
+              <img src={url} alt={`Scorcio ${i + 1}`} class="w-1/2 h-[28rem] object-cover flex-shrink-0" loading="lazy" />
+            ))}
+          </div>
+          <div class="absolute top-1/2 left-0 w-full flex justify-between px-4 z-10">
+            <button id="prev" class="glide__arrow glide__arrow--left bg-black/50 text-white text-xl px-4 py-2 rounded-full hover:bg-black/70">‹</button>
+            <button id="next" class="glide__arrow glide__arrow--right bg-black/50 text-white text-xl px-4 py-2 rounded-full hover:bg-black/70">›</button>
+          </div>
+        </div>
+      </section>
+
+      <script is:inline>
+        let scrollIndex = 0;
+        const carousel = document.getElementById("carousel");
+        const totalSlides = carousel?.children?.length || 0;
+        function updateCarousel() { carousel.style.transform = `translateX(-${scrollIndex * 50}%)`; }
+        document.getElementById("next")?.addEventListener("click", () => { if (scrollIndex < totalSlides - 2) { scrollIndex += 1; updateCarousel(); } });
+        document.getElementById("prev")?.addEventListener("click", () => { if (scrollIndex > 0) { scrollIndex -= 1; updateCarousel(); } });
+        setInterval(() => { scrollIndex = (scrollIndex + 1) % (totalSlides - 1); updateCarousel(); }, 5000);
+      </script>
+
+      <!-- GALLERIA -->
+      <section class="w-full flex flex-col md:flex-row">
+        <img src={homepage.galleria.immagine} alt="Galleria" class="w-full md:w-1/2 h-[36rem] object-cover" />
+        <div class="md:w-1/2 bg-[#f9f9f9] px-6 md:px-20 py-16 flex flex-col justify-center">
+          <h2 class="text-2xl font-bold mb-4">{homepage.galleria.titolo}</h2>
+          <p class="mb-4 text-base">{homepage.galleria.testo}</p>
+          <a href="/galleria" class={btnClass}>{homepage.galleria.link}</a>
+        </div>
+      </section>
+
+      <!-- CHIUSURA TESTUALE -->
+      <section class="w-full bg-white py-24 px-8 md:px-24 text-center">
+        <h2 class="text-xl md:text-2xl font-semibold mb-4">{homepage.chiusura.titolo}</h2>
+        <p class="max-w-3xl mx-auto text-base">{homepage.chiusura.testo}</p>
+      </section>
+
+      <!-- CONTATTI -->
+      <section class="w-full flex flex-col md:flex-row-reverse">
+        <img src={homepage.contatti.immagine} alt="Contatti" class="w-full md:w-1/2 h-[36rem] object-cover" />
+        <div class="md:w-1/2 bg-[#f9f9f9] px-6 md:px-20 py-16 flex flex-col justify-center">
+          <h2 class="text-2xl font-bold mb-4">{homepage.contatti.titolo}</h2>
+          <p class="mb-4 text-base">{homepage.contatti.testo}</p>
+          <a href="/contatti" class={btnClass}>{homepage.contatti.link}</a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+
+    <script is:inline>
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navbar");
+        if (!nav) return;
+        if (window.scrollY > 100) {
+          nav.classList.add("bg-white", "text-black", "shadow-md", "backdrop-blur");
+          nav.classList.remove("text-white", "bg-transparent");
+        } else {
+          nav.classList.remove("bg-white", "text-black", "shadow-md", "backdrop-blur");
+          nav.classList.add("bg-transparent", "text-white");
+        }
+      });
+    </script>
+  </body>
+</html>

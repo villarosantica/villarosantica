@@ -1,0 +1,12 @@
+meta:
+  title: "Galleria – Villa Rosantica"
+  description: "Scopri la galleria fotografica di Villa Rosantica e lasciati ispirare dalla bellezza della location per eventi immersa nel verde."
+
+hero:
+  immagine: "/uploads/galleria-hero.jpg"
+  titolo: "Galleria"
+  testo: "Uno sguardo tra i ricordi, le atmosfere e i momenti più belli vissuti a Villa Rosantica."
+
+cta:
+  testo: "Richiedi una visita o contattaci"
+  link: "/contatti"

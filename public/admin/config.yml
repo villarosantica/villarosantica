@@ -1,0 +1,266 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# media_library:
+#   name: cloudinary
+#   config:
+#     cloud_name: 'dbs1qnvg8'
+#     api_key: '469179498321787'
+#     insert_transformed: false
+#     default_transformations:
+#       - fetch_format: auto
+#         quality: auto
+
+
+collections:
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - file: "content/homepage/homepage.yaml"
+        label: "Contenuti Homepage"
+        name: "homepage"
+        format: "yaml"
+        fields:
+          - label: "Meta"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titolo", widget: "string" }
+              - { name: "description", label: "Descrizione", widget: "string" }
+
+          - label: "Intro"
+            name: "intro"
+            widget: "object"
+            fields:
+              - { name: "titolo", label: "Titolo", widget: "string" }
+              - { name: "testo", label: "Testo", widget: "text" }
+
+          - label: "Sezione Location"
+            name: "location"
+            widget: "object"
+            fields:
+              - { name: "immagine", label: "Immagine", widget: "image" }
+              - { name: "titolo", label: "Titolo", widget: "string" }
+              - { name: "testo", label: "Testo", widget: "text" }
+              - { name: "link", label: "Testo Link", widget: "string" }
+
+          - label: "Sezione Eventi"
+            name: "eventi"
+            widget: "object"
+            fields:
+              - { name: "immagine", label: "Immagine", widget: "image" }
+              - { name: "titolo", label: "Titolo", widget: "string" }
+              - { name: "testo", label: "Testo", widget: "text" }
+              - { name: "link", label: "Testo Link", widget: "string" }
+
+          - label: "Testo Intermedio"
+            name: "intermezzo"
+            widget: "object"
+            fields:
+              - { name: "titolo", label: "Titolo", widget: "string" }
+              - { name: "testo", label: "Testo", widget: "text" }
+
+          - label: "Sezione Galleria"
+            name: "galleria"
+            widget: "object"
+            fields:
+              - { name: "immagine", label: "Immagine", widget: "image" }
+              - { name: "titolo", label: "Titolo", widget: "string" }
+              - { name: "testo", label: "Testo", widget: "text" }
+              - { name: "link", label: "Testo Link", widget: "string" }
+
+          - label: "Testo Finale"
+            name: "chiusura"
+            widget: "object"
+            fields:
+              - { name: "titolo", label: "Titolo", widget: "string" }
+              - { name: "testo", label: "Testo", widget: "text" }
+
+          - label: "Sezione Contatti"
+            name: "contatti"
+            widget: "object"
+            fields:
+              - { name: "immagine", label: "Immagine", widget: "image" }
+              - { name: "titolo", label: "Titolo", widget: "string" }
+              - { name: "testo", label: "Testo", widget: "text" }
+              - { name: "link", label: "Testo Link", widget: "string" }
+
+
+  - name: "la-location"
+    label: "La Location"
+    files:
+      - file: "content/la-location/la-location.yaml"
+        label: "Contenuti La Location"
+        name: "la-location"
+        format: "yaml"
+        fields:
+          - label: "Meta"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titolo", widget: "string" }
+              - { name: "description", label: "Descrizione", widget: "string" }
+
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { name: "immagine", label: "Immagine", widget: "image" }
+              - { name: "titolo", label: "Titolo", widget: "string" }
+              - { name: "testo", label: "Testo", widget: "text" }
+
+          - label: "Sezioni"
+            name: "sezioni"
+            widget: "list"
+            fields:
+              - { name: "immagine", label: "Immagine", widget: "image" }
+              - { name: "alt", label: "Testo Alternativo", widget: "string" }
+              - { name: "testo", label: "Testo", widget: "text" }
+
+          - label: "Call to Action"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { name: "testo", label: "Testo", widget: "string" }
+              - { name: "link", label: "Link", widget: "string" }
+
+
+            
+  - name: "eventi"
+    label: "Pagina Eventi"
+    files:
+      - file: "content/eventi/eventi.yaml"
+        label: "Contenuti Pagina Eventi"
+        name: "eventi"
+        fields:
+          - label: "SEO"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titolo pagina", widget: "string" }
+              - { name: "description", label: "Descrizione", widget: "text" }
+
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { name: "immagine", label: "Immagine di copertina", widget: "image" }
+              - { name: "titolo", label: "Titolo", widget: "string" }
+              - { name: "testo", label: "Testo", widget: "text" }
+
+          - label: "Sezione 1"
+            name: "sezione1"
+            widget: "object"
+            fields:
+              - { name: "immagine", label: "Immagine", widget: "image" }
+              - { name: "testo", label: "Testo", widget: "text" }
+
+          - label: "Sezione 2"
+            name: "sezione2"
+            widget: "object"
+            fields:
+              - { name: "immagine", label: "Immagine", widget: "image" }
+              - { name: "testo", label: "Testo", widget: "text" }
+
+          - label: "Call to Action"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { name: "testo", label: "Testo", widget: "string" }
+              - { name: "link", label: "Link", widget: "string" }
+
+  - name: "galleria"
+    label: "Galleria"
+    files:
+      - file: "content/galleria/galleria.yaml"
+        label: "Contenuti Galleria"
+        name: "galleria"
+        fields:
+          - label: "Meta"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titolo della pagina", widget: "string" }
+              - { name: "description", label: "Descrizione", widget: "string" }
+
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { name: "immagine", label: "Immagine", widget: "image" }
+              - { name: "titolo", label: "Titolo", widget: "string" }
+              - { name: "testo", label: "Testo", widget: "text" }
+
+          - label: "Call to Action"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { name: "testo", label: "Testo del bottone", widget: "string" }
+              - { name: "link", label: "Link", widget: "string" }
+
+  - name: "contatti"
+    label: "Contatti"
+    files:
+      - file: "content/contatti/contatti.yaml"
+        label: "Contenuti Contatti"
+        name: "contatti"
+        fields:
+          - label: "Meta"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titolo della pagina", widget: "string" }
+              - { name: "description", label: "Descrizione", widget: "string" }
+
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { name: "immagine", label: "Immagine", widget: "image" }
+              - { name: "titolo", label: "Titolo", widget: "string" }
+              - { name: "testo", label: "Testo", widget: "text" }
+
+          - label: "Informazioni di contatto"
+            name: "informazioni"
+            widget: "object"
+            fields:
+              - { name: "nome", label: "Nome Struttura", widget: "string" }
+              - { name: "indirizzo", label: "Indirizzo", widget: "text" }
+              - { name: "telefono", label: "Telefono", widget: "string" }
+              - { name: "email", label: "Email", widget: "string" }
+              - { name: "note", label: "Note aggiuntive", widget: "text" }
+
+
+  - name: "header"
+    label: "Header"
+    files:
+      - file: "content/header/header.yaml"
+        label: "Contenuti Header"
+        name: "header"
+        fields:
+          - { name: "logo", label: "Logo", widget: "image" }
+          - label: "Menu"
+            name: "menu"
+            widget: "list"
+            fields:
+              - { name: "name", label: "Testo", widget: "string" }
+              - { name: "href", label: "Link", widget: "string" }
+
+  - name: "footer"
+    label: "Footer"
+    files:
+      - file: "content/footer/footer.yaml"
+        label: "Contenuti Footer"
+        name: "footer"
+        fields:
+          - { name: "logo", label: "Logo", widget: "image" }
+          - { name: "indirizzo", label: "Indirizzo", widget: "text" }
+          - { name: "telefono_1", label: "Telefono 1", widget: "string" }
+          - { name: "telefono_2", label: "Telefono 2", widget: "string" }
+          - { name: "email", label: "Email", widget: "string" }
+          - { name: "piva", label: "Partita IVA", widget: "string" }
+          - { name: "titolo_form", label: "Titolo Form Contatto", widget: "string" }

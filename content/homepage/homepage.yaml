@@ -1,0 +1,44 @@
+meta:
+  title: "Villa Rosantica – Location per Matrimoni ed Eventi a Roma"
+  description: "Benvenuti a Villa Rosantica, angolo segreto sull’Appia Antica dove organizzare matrimoni da sogno, feste private ed eventi corporate immersi nella natura."
+
+hero:
+  video: "/uploads/main-video.mov"
+
+intro:
+  titolo: "Benvenuti a Villa Rosantica"
+  testo: |
+    Un angolo segreto di Roma dove il tempo si ferma e i sogni prendono forma.
+    Nel cuore del Parco dell’Appia Antica, a soli 5 minuti dal centro di Roma, sorge Villa Rosantica: un luogo incantato dove natura, storia e bellezza si fondono in un equilibrio perfetto. Immersa in un paesaggio senza tempo, la villa è la cornice ideale per matrimoni da sogno, eventi esclusivi e feste private indimenticabili.
+
+location:
+  immagine: "/uploads/location-hero.jpg"
+  titolo: "La Location"
+  testo: "Villa Rosantica si estende in un parco privato di straordinaria grandezza, popolato da alberi secolari e un suggestivo laghetto. Scopri ogni angolo verde curato con amore e lasciati ispirare per il tuo evento."
+  link: "Scopri la location"
+
+eventi:
+  immagine: "/uploads/homepage-eventi.jpeg"
+  titolo: "Eventi su Misura"
+  testo: "Dalla proposta gastronomica firmata Ambrosini Banqueting agli allestimenti personalizzati, trasformiamo ogni matrimonio, festa privata o meeting aziendale in un ricordo indelebile."
+  link: "Scopri gli eventi"
+
+intermezzo:
+  titolo: "Un'esperienza immersiva nella natura"
+  testo: "Villa Rosantica unisce eleganza e paesaggio, creando l'ambiente perfetto per vivere momenti indimenticabili tra alberi secolari e giardini curati."
+
+galleria:
+  immagine: "/uploads/homepage-galleria.jpeg"
+  titolo: "Galleria"
+  testo: "Lasciati ispirare dalle nostre foto più belle e scopri l'atmosfera unica di Villa Rosantica."
+  link: "Guarda la galleria"
+
+chiusura:
+  titolo: "Dettagli che fanno la differenza"
+  testo: "Ogni angolo della Villa è stato progettato per valorizzare ogni momento, ogni sguardo, ogni emozione."
+
+contatti:
+  immagine: "/uploads/homepage-contatti.jpeg"
+  titolo: "Contatti"
+  testo: "Contattaci per fissare una visita o ricevere maggiori informazioni. Siamo a tua disposizione!"
+  link: "Richiedi informazioni"

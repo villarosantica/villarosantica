@@ -1,0 +1,12 @@
+logo: "/uploads/logo-rosantica.png"
+menu:
+  - name: "Home"
+    href: "/"
+  - name: "La Location"
+    href: "/la-location"
+  - name: "Eventi"
+    href: "/eventi"
+  - name: "Galleria"
+    href: "/galleria"
+  - name: "Contatti"
+    href: "/contatti"
